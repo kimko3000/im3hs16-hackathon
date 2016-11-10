@@ -2,7 +2,7 @@
 <?php
 
 session_start();
-if(isset($_SESSION['userid'])) unset($_SESSION['userid']);
+if(isset($_SESSION['user_id'])) unset($_SESSION['user_id']);
 session_destroy();
 
 
@@ -31,8 +31,8 @@ if(isset($_POST['login-submit'])){
     if( $row_count == 1){
       session_start();
       $user = mysqli_fetch_assoc($result);
-      $_SESSION['userid'] = $user['user_id'];
-      header("Location:index.php");
+      $_SESSION['user_id'] = $user['user_id'];
+      header("Location:home.php");
     }else{
       // Fehlermeldungen werden erst später angezeigt
       $error = true;
