@@ -1,9 +1,8 @@
-<<<<<<< Updated upstream
-<<?php
-=======
+
 <?php
 
->>>>>>> Stashed changes
+
+
 
 require_once("system/data.php");
 require_once("system/security.php");
