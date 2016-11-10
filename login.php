@@ -48,7 +48,6 @@ if(isset($_POST['login-submit'])){
 if(isset($_POST['register-submit'])){
   // Kontrolle mit isset, ob email und password ausgefüllt wurde
   if(!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm-password'])){
-// TODO MYSQL ANFRAGE; OB EMAIL / USER BESETZT; YES - NO
     $username = filter_data($_POST['username']);
     $email = filter_data($_POST['email']);
     $result = checkforexistance($username, $email);
