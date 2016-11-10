@@ -10,6 +10,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="author" content="Kim Schläpfer, Luca Toneatti, Fabio Follador">
 
+    <title>Tourismusbilder</title>
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
   </head>
   <body>

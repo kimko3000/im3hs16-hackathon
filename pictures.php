@@ -25,6 +25,9 @@
 
 
 
+<h1>hallo</h1>
+<footer><p>Copyright 2016</p></footer>
+
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/tether.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
