@@ -34,5 +34,10 @@ function register($username, $email , $password){
   return get_result($sql);
 }
 
+function checkforexistance($username, $email){
+  $sql = "SELECT * FROM user WHERE username = '".$username."' AND email = '".$email."';";
+  return get_result($sql);
+}
+
 
 ?>

@@ -24,7 +24,7 @@ if(isset($_POST['login-submit'])){
     $password = filter_data($_POST['password']);
 
     // Liefert alle Infos zu User mit diesen Logindaten
-    $result = login($username,$password);
+    $result = login($username, $password);
 
     // Anzahl der gefundenen Ergebnisse in $row_count
     $row_count = mysqli_num_rows($result);
@@ -48,12 +48,13 @@ if(isset($_POST['login-submit'])){
 if(isset($_POST['register-submit'])){
   // Kontrolle mit isset, ob email und password ausgefüllt wurde
   if(!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm-password'])){
-    $result = register($username, $email, $password);
+// TODO MYSQL ANFRAGE; OB EMAIL / USER BESETZT; YES - NO
+    $username = filter_data($_POST['username']);
+    $email = filter_data($_POST['email']);
+    $result = checkforexistance($username, $email);
     $row_count = mysqli_num_rows($result);
     if( $row_count == 0){
       // Werte aus POST-Array auf SQL-Injections prüfen und in Variablen schreiben
-      $username = filter_data($_POST['username']);
-      $email = filter_data($_POST['email']);
       $password = filter_data($_POST['password']);
       $confirm_password = filter_data($_POST['confirm-password']);
       if($password == $confirm_password){
@@ -72,13 +73,12 @@ if(isset($_POST['register-submit'])){
         $error_msg .= "Die Passwörter stimmen nicht überein.</br>";
       }
     }else{
-      // Fehlermeldungen werden erst später angezeigt
       $error = true;
       $error_msg .= "Ihre eingegebene Email-Adresse oder der Username besteht bereits .</br>";
     }
     }else{
     $error = true;
-    $error_msg .= "Bitte füllen Sie beide Felder aus.</br>";
+    $error_msg .= "Bitte füllen Sie alle Felder aus.</br>";
   }
 }
 
@@ -169,7 +169,21 @@ if(isset($_POST['register-submit'])){
     </div>
 
 
-
+    <?php
+      // Gibt es einen Erfolg zu vermelden?
+      if($success == true){
+    ?>
+        <div class="alert alert-success" role="alert"><?php echo $success_msg; ?></div>
+    <?php
+      }   // schliessen von if($success == true)
+      // Gibt es einen Fehler?
+      if($error == true){
+    ?>
+        <div class="alert alert-danger" role="alert"><?php echo $error_msg; ?></div>
+    <?php
+      }   // schliessen von if($success == true)
+    ?>
+      </div><!-- /container -->
 
 
 
