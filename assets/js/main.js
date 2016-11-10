@@ -13,7 +13,7 @@ $(document).ready(function() {
         $(this).addClass('active');
         e.preventDefault();
     });
-
+/////////////////////////// Gallerie: http://bootsnipp.com/snippets/7XVM2
     $('.thumbnail').click(function() {
         $('.modal-body').empty();
         var title = $(this).parent('a').attr("title");
@@ -23,7 +23,7 @@ $(document).ready(function() {
             show: true
         });
     });
-    
+////////////////////////// BUTTON CHECKBOX: http://bootsnipp.com/snippets/xG8am
     $('.button-checkbox').each(function() {
 
         // Settings
@@ -86,4 +86,13 @@ $(document).ready(function() {
         }
         init();
     });
+
+/////////////////// Google Maps API
+
+
+
+
+
+
+
 });
