@@ -1,4 +1,14 @@
+<?php
+  session_start();
+  if (isset($_SESSION['id'])) {
+      unset($_SESSION['id']);
+  }
+  session_destroy();
 
+  require_once('system/data.php');
+  require_once('system/security.php');
+
+  ?>
 
 
 
@@ -19,8 +29,7 @@
 
     <header>
       <h1 id="logo">Tourismusbilder</h1>
-      <
-      <button id="plus-btn" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+      <button id="plus-btn" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-user"></span></button>
 </header>
 <div id="map"></div>
 
