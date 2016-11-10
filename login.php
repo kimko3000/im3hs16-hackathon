@@ -1,10 +1,4 @@
 <<?php
-session_start();
-if(!isset($_SESSION['userid'])){
-  header("Location:index.php");
-}else{
-  $user_id = $_SESSION['userid'];
-}
 
 require_once("system/data.php");
 require_once("system/security.php");
@@ -115,7 +109,6 @@ require_once("system/security.php");
 
 
 
-<footer><p>Copyright 2016</p></footer>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/tether.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
