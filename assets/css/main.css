@@ -224,3 +224,6 @@ label {
   color: #fff;
   background-color: #2D3B55;
 }
+
+.modal-dialog {width:600px;}
+.thumbnail {margin-bottom:6px;}
