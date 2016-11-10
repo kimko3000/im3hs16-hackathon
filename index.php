@@ -16,7 +16,12 @@
     <link rel="stylesheet" href="assets/css/main.css" type="text/css">
   </head>
   <body>
-<button id="plus-btn" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+
+    <header>
+      <h1 id="logo">Tourismusbilder</h1>
+      <
+      <button id="plus-btn" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+</header>
 <div id="map"></div>
 
 
@@ -47,9 +52,8 @@ function initMap() {
   });
 }
 </script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/tether.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKuRJfjZTU3bHDh8xdLsCGjY5zO7hdGXI&callback=initMap">
     </script>

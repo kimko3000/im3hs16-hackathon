@@ -5,7 +5,13 @@ html, body {
   margin: 0;
   padding: 0;
 }
+header{
+  background-color:  #607d8b;
+}
 
+#logo{
+  color: #ffffff;
+}
 #map {
   height: 90%;
   z-index: 0;
