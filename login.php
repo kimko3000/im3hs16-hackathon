@@ -32,7 +32,7 @@ if(isset($_POST['login-submit'])){
       session_start();
       $user = mysqli_fetch_assoc($result);
       $_SESSION['userid'] = $user['user_id'];
-      header("Location:home.php");
+      header("Location:index.php");
     }else{
       // Fehlermeldungen werden erst später angezeigt
       $error = true;
@@ -47,18 +47,19 @@ if(isset($_POST['login-submit'])){
 
 if(isset($_POST['register-submit'])){
   // Kontrolle mit isset, ob email und password ausgefüllt wurde
-  if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm-password'])){
+  if(!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm-password'])){
 
     // Werte aus POST-Array auf SQL-Injections prüfen und in Variablen schreiben
+    $username = filter_data($_POST['username']);
     $email = filter_data($_POST['email']);
     $password = filter_data($_POST['password']);
     $confirm_password = filter_data($_POST['confirm-password']);
     if($password == $confirm_password){
       // register liefert bei erfolgreichem Eintrag in die DB den Wert TRUE zurück, andernfalls FALSE
-      $result = register($email, $password);
+      $result = register($username, $email, $password);
       if($result){
         $success = true;
-        $success_msg = "Sie haben erfolgreich registriert.</br>
+        $success_msg = "Sie haben sich erfolgreich registriert.</br>
         Bitte loggen Sie sich jetzt ein.</br>";
       }else{
         $error = true;
@@ -96,7 +97,7 @@ if(isset($_POST['register-submit'])){
   </head>
   <body>
 
-
+    <!-- http://bootsnipp.com/snippets/kE9rg -->
     <div class="container">
        <div class="row">
         <div class="col-md-6 col-md-offset-3">
