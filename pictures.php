@@ -52,7 +52,17 @@
 
     	</div>
     	<div class="modal-footer">
-    		<button class="btn btn-default" data-dismiss="modal">Close</button>
+        <form id="picture-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" role="form">
+          <span class="button-checkbox">
+              <button type="button" class="btn btn-default" data-color="success">Public</button>
+              <input type="checkbox" class="hidden"/>
+            </span>
+            <span class="button-checkbox">
+            <button type="button" class="btn btn-default" data-color="danger">DELETE</button>
+            <input type="checkbox" class="hidden"/>
+          </span>
+            <button type="submit" name="picture-edit-submit" class="btn btn-primary">Save</button>
+        </form>
     	</div>
        </div>
       </div>
