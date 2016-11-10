@@ -1,1 +1,1 @@
-Hi, this site is for the Hackathon IntMed 3 HS16 @ HTW Chur.
+Hi, this site is for the HACKATHON IntMed 3 HS16 @ HTW Chur.
