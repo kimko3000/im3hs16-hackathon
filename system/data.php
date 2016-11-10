@@ -16,5 +16,23 @@ function get_result($sql){
 }
 
 
+/* *********************************************************
+/* Login
+/* ****************************************************** */
+
+function login($username , $password){
+  $sql = "SELECT * FROM user WHERE username = '".$username."' AND password = '".$password."';";
+  return get_result($sql);
+}
+
+/* *********************************************************
+/* Registrieren
+/* ****************************************************** */
+
+function register($username, $email , $password){
+  $sql = "INSERT INTO user (username, email, password) VALUES ('$username', '$email', '$password');";
+  return get_result($sql);
+}
+
 
 ?>

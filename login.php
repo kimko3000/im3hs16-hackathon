@@ -48,30 +48,37 @@ if(isset($_POST['login-submit'])){
 if(isset($_POST['register-submit'])){
   // Kontrolle mit isset, ob email und password ausgefüllt wurde
   if(!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm-password'])){
-
-    // Werte aus POST-Array auf SQL-Injections prüfen und in Variablen schreiben
-    $username = filter_data($_POST['username']);
-    $email = filter_data($_POST['email']);
-    $password = filter_data($_POST['password']);
-    $confirm_password = filter_data($_POST['confirm-password']);
-    if($password == $confirm_password){
-      // register liefert bei erfolgreichem Eintrag in die DB den Wert TRUE zurück, andernfalls FALSE
-      $result = register($username, $email, $password);
-      if($result){
-        $success = true;
-        $success_msg = "Sie haben sich erfolgreich registriert.</br>
-        Bitte loggen Sie sich jetzt ein.</br>";
+    $result = register($username, $email, $password);
+    $row_count = mysqli_num_rows($result);
+    if( $row_count == 0){
+      // Werte aus POST-Array auf SQL-Injections prüfen und in Variablen schreiben
+      $username = filter_data($_POST['username']);
+      $email = filter_data($_POST['email']);
+      $password = filter_data($_POST['password']);
+      $confirm_password = filter_data($_POST['confirm-password']);
+      if($password == $confirm_password){
+        // register liefert bei erfolgreichem Eintrag in die DB den Wert TRUE zurück, andernfalls FALSE
+        $result = register($username, $email, $password);
+        if($result){
+          $success = true;
+          $success_msg = "Sie haben sich erfolgreich registriert.</br>
+          Bitte loggen Sie sich jetzt ein.</br>";
+        }else{
+          $error = true;
+          $error_msg .= "Es gibt ein Problem mit der Datenbankverbindung.</br>";
+        }
       }else{
         $error = true;
-        $error_msg .= "Es gibt ein Problem mit der Datenbankverbindung.</br>";
+        $error_msg .= "Die Passwörter stimmen nicht überein.</br>";
       }
     }else{
+      // Fehlermeldungen werden erst später angezeigt
       $error = true;
-      $error_msg .= "Die Passwörter stimmen nicht überein.</br>";
+      $error_msg .= "Ihre eingegebene Email-Adresse oder der Username besteht bereits .</br>";
     }
-  }else{
+    }else{
     $error = true;
-    $error_msg .= "Bitte füllen Sie alle Felder aus.</br>";
+    $error_msg .= "Bitte füllen Sie beide Felder aus.</br>";
   }
 }
 
