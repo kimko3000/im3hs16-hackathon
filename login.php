@@ -97,9 +97,9 @@ if(isset($_POST['register-submit'])){
 
     <title>Tourismusbilder</title>
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/main.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/main.css" type="text/css">
 
   </head>
   <body>
@@ -200,9 +200,8 @@ if(isset($_POST['register-submit'])){
 
 
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/tether.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="assets/js/main.js"></script>
   </body>
 </html>

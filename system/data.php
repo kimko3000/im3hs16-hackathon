@@ -49,6 +49,7 @@ function upload(){
 
 function get_pictures(){
   $sql = "SELECT * FROM picture;";
+  return get_result($sql);
 }
 
 ?>
