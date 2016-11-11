@@ -15,72 +15,29 @@ $error = false;
 $error_msg = "";
 $success = false;
 $success_msg = "";
-// Kontrolle, ob die Seite direkt aufgerufen wurde oder vom Login-Formular
-if(isset($_POST['login-submit'])){
+
+
+if(isset($_POST['upload-submit'])){
   // Kontrolle mit isset, ob email und password ausgefüllt wurde
-  if(!empty($_POST['username']) && !empty($_POST['password'])){
-
-    // Werte aus POST-Array auf SQL-Injections prüfen und in Variablen schreiben
-    $username = filter_data($_POST['username']);
-    $password = filter_data($_POST['password']);
-
-    // Liefert alle Infos zu User mit diesen Logindaten
-    $result = login($username, $password);
-
-    // Anzahl der gefundenen Ergebnisse in $row_count
-    $row_count = mysqli_num_rows($result);
-    if( $row_count == 1){
-      session_start();
-      $user = mysqli_fetch_assoc($result);
-      $_SESSION['user_id'] = $user['user_id'];
-      header("Location:home.php");
-    }else{
-      // Fehlermeldungen werden erst später angezeigt
-      $error = true;
-      $error_msg .= "Leider konnte wir Ihre E-Mailadresse oder Ihr Passwort nicht finden.</br>";
-    }
-  }else{
-    $error = true;
-    $error_msg .= "Bitte füllen Sie beide Felder aus.</br>";
-  }
-}
-
-
-if(isset($_POST['register-submit'])){
-  // Kontrolle mit isset, ob email und password ausgefüllt wurde
-  if(!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm-password'])){
-    $username = filter_data($_POST['username']);
-    $email = filter_data($_POST['email']);
-    $result = checkforexistance($username, $email);
-    $row_count = mysqli_num_rows($result);
-    if( $row_count == 0){
-      // Werte aus POST-Array auf SQL-Injections prüfen und in Variablen schreiben
-      $password = filter_data($_POST['password']);
-      $confirm_password = filter_data($_POST['confirm-password']);
-      if($password == $confirm_password){
-        // register liefert bei erfolgreichem Eintrag in die DB den Wert TRUE zurück, andernfalls FALSE
-        $result = register($username, $email, $password);
+  if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['alt']) && !empty($_POST['long'])){
+    $title = filter_data($_POST['title']);
+    $description = filter_data($_POST['description']);
+    $alt = filter_data($_POST['alt']);
+    $long = filter_data($_POST['long']);
         if($result){
           $success = true;
-          $success_msg = "Sie haben sich erfolgreich registriert.</br>
-          Bitte loggen Sie sich jetzt ein.</br>";
-        }else{
+          $success_msg = "Bild wurde erfolgreich hochgeladen.</br>";
+        }
+        else{
           $error = true;
           $error_msg .= "Es gibt ein Problem mit der Datenbankverbindung.</br>";
         }
-      }else{
-        $error = true;
-        $error_msg .= "Die Passwörter stimmen nicht überein.</br>";
-      }
-    }else{
-      $error = true;
-      $error_msg .= "Ihre eingegebene Email-Adresse oder der Username besteht bereits .</br>";
-    }
-    }else{
+  }else{
     $error = true;
     $error_msg .= "Bitte füllen Sie alle Felder aus.</br>";
   }
 }
+
 
 
  ?>
@@ -115,47 +72,26 @@ if(isset($_POST['register-submit'])){
                   <form id="upload-form" action="#" method="post" role="form" style="display: block;">
                     <h2>UPLOAD PICTURE</h2>
                       <div class="form-group">
-                        <input type="text" name="title" id="title" tabindex="1" class="form-control" placeholder="enter the title of your picture" value="">
+                        <input type="text" name="title" id="title" tabindex="1" class="form-control" placeholder="title of your picture" value="">
                       </div>
                       <div class="form-group">
-                        <input type="text" name="description" id="description" tabindex="2" class="form-control" placeholder="enter the description of your picture">
+                        <input type="text" name="description" id="description" tabindex="2" class="form-control" placeholder="description of your picture">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="alt" id="alt" tabindex="3" class="form-control" placeholder="enter latitude">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" name="long" id="long" tabindex="4" class="form-control" placeholder="enter longitude">
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-5">
+                          <input type="file" name="image" id="image" class="inputstl">
+                        </div>
                       </div>
                       <div class="col-xs-6 form-group pull-right">
                             <input type="submit" name="upload-submit" id="upload-submit" tabindex="4" class="form-control btn btn-login" value="Upload">
                       </div>
                   </form>
-                  <form id="register-form" action="#" method="post" role="form" style="display: none;">
-                    <h2>REGISTER</h2>
-                      <div class="form-group">
-                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
-                      </div>
-                      <div class="form-group">
-                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
-                      </div>
-                      <div class="form-group">
-                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                      </div>
-                      <div class="form-group">
-                        <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-                      </div>
-                      <div class="form-group">
-                        <div class="row">
-                          <div class="col-sm-6 col-sm-offset-3">
-                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
-                          </div>
-                        </div>
-                      </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div class="panel-heading">
-              <div class="row">
-                <div class="col-xs-6 tabs">
-                  <a href="#" class="active" id="login-form-link"><div class="login">LOGIN</div></a>
-                </div>
-                <div class="col-xs-6 tabs">
-                  <a href="#" id="register-form-link"><div class="register">REGISTER</div></a>
                 </div>
               </div>
             </div>

@@ -9,7 +9,7 @@
 
 function get_result($sql){
   $db = get_db_connection();
-  // echo $sql;
+   echo $sql;
   $result = mysqli_query($db,$sql);
   mysqli_close($db);
   return $result;
@@ -43,8 +43,8 @@ function checkforexistance($username, $email){
 /* Fotos
 /* ****************************************************** */
 
-function upload(){
-  $sql = "INSERT INTO `picture`(`title`, `description`, `file_name`, `alt`, `long`,`datetime_shoot`) VALUES ('Titel','Beschreibung','file-name',54.223,34.567,06/05/1992)"
+function upload($title, $description, $file_name, $alt, $long, $datetime_shoot){
+  $sql = "INSERT INTO `picture`(`title`, `description`, `file_name`, `alt`, `long`,`datetime_shoot`) VALUES ('$title', '$description', '$file_name', '$alt', '$long', '$datetime_shoot');";
 }
 
 function get_pictures(){
