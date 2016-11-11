@@ -50,7 +50,7 @@
 function initMap() {
   // Create a map object and specify the DOM element for display.
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 46.731, lng: 9.424},
+    center: {lat: 46.65698709999999, lng: 9.578025700000012},
     zoom: 10,
     streetViewControl: false,
     mapTypeControl: true,
