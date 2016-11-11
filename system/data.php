@@ -52,4 +52,35 @@ function get_pictures(){
   return get_result($sql);
 }
 
+/* *********************************************************
+/* Like Funktion
+/* ****************************************************** */
+
+$strSQL_Result  = mysqli_query($connection,"SELECT `like_id` FROM `like` WHERE user_id=1");
+$row            = mysqli_fetch_array($strSQL_Result);
+
+$like       = $row['like_id'];
+if($_POST)
+{
+    if(isset($_COOKIE["572825_4_1"]))
+    {
+        echo "-1";
+        exit;
+    }
+    setcookie("572825_4_1", "liked", time()+3600*24, "/like-unlike-in-php-mysql/", ".demo.phpgang.com");
+    if(mysqli_real_escape_string($connection,$_POST['op']) == 'like')
+    {
+        $update = "`like`=`like_id`+1";
+    }
+
+    mysqli_query($connection,"UPDATE `like` SET $update WHERE `id`=1");
+    echo 1;
+    exit;
+}
+
+/* *********************************************************
+/* Fotos
+/* ****************************************************** */
+
+
 ?>
