@@ -52,6 +52,19 @@ function get_pictures(){
   return get_result($sql);
 }
 
+/* *********************************************************
+/* POI generieren
+/* ****************************************************** */
+
+function upload($title, $description, $file_name, $alt, $long, $datetime_shoot){
+  $sql = "INSERT INTO `picture`(`title`, `description`, `file_name`, `alt`, `long`,`datetime_shoot`) VALUES ('$title', '$description', '$file_name', '$alt', '$long', '$datetime_shoot');";
+}
+
+function get_pictures(){
+  $sql = "SELECT * FROM picture;";
+  return get_result($sql);
+}
+
 
 
 ?>
