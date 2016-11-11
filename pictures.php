@@ -9,7 +9,7 @@
   require_once('system/data.php');
   require_once('system/security.php');
 
-$picture = get_pictures();
+$picture_list = get_pictures();
 
 ?>
 <!DOCTYPE html>
@@ -32,12 +32,10 @@ $picture = get_pictures();
       <div class="row">
 
         <h1>Alle Fotos</h1>
-          <?php while ($post = mysqli_fetch_array($picture)) {
+          <?php while ($picture = mysqli_fetch_assoc($picture_list)) {
             //$update_time = date_parse($picture['datetime_upload']);
     ?>
-          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="<?php echo $post['title']?>" href="#"><img class="thumbnail img-responsive" style="height:300px;width:auto;" src="###"></a></div>
-
-          <hr>
+          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="<?php echo $picture['title']?>" href="#"><img class="thumbnail img-responsive" style="height:300px;width:auto;" src="###"></a></div>
 
           <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -53,6 +51,11 @@ $picture = get_pictures();
             </div>
 
             <div class="modal-footer">
+
+
+
+
+
               <form id="picture-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" role="form">
                 <div class="form-group row">
                   <div class="col-sm-5 col-xs-6">
@@ -98,6 +101,11 @@ $picture = get_pictures();
                 </div>
               </div>
             </form>
+
+
+
+
+
           </div>
               </div>
             </div>
@@ -105,9 +113,9 @@ $picture = get_pictures();
     <?php } ?>
   </div>
 </div>
-
+<script src="assets/js/main.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="assets/js/main.js"></script>
+
   </body>
 </html>
