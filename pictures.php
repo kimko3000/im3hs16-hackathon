@@ -9,8 +9,11 @@
   require_once('system/data.php');
   require_once('system/security.php');
 
+$pictures = get_pictures();
 
-$picture = get_pictures();
+
+$update_time = date_parse($pictures['datetime_upload']);
+
 ?>
 
 
@@ -35,9 +38,11 @@ $picture = get_pictures();
       <div class="row">
 
         <h1>Alle Fotos</h1>
-          <?php while($post = mysqli_fetch_array($picture)){ ?>
-          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="<?php echo $post['title']?>" href="#"><img class="thumbnail img-responsive" style="height:300px;" src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=414e28999a4ae7e26c1cf4b4ac1f164f"></a></div>
-          <?php } ?>
+          <?php while ($post = mysqli_fetch_array($pictures)) {
+    ?>
+          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="<?php echo $post['title']?>" href="#"><img class="thumbnail img-responsive" style="height:300px;width:auto;" src="###"></a></div>
+          <?php
+} ?>
 
         <hr>
       </div>
@@ -48,26 +53,61 @@ $picture = get_pictures();
         <div class="modal-header">
     		<button class="close" type="button" data-dismiss="modal">×</button>
     		<h3 class="modal-title"><?php echo $picture['title'] ?></h3>
+        <p><?php echo $upload_date ?></p>
     	</div>
     	<div class="modal-body">
 
     	</div>
     	<div class="modal-footer">
         <form id="picture-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" role="form">
+          <div class="form-group row">
+            <div class="col-sm-5 col-xs-6">
+              <input  type="text" class="form-control form-control-sm"
+                      id="title" placeholder="Titel"
+                      name="title" value="<?php echo $picture['title']; ?>">
+            </div>
+            <div>
+              <input  type="text" class="form-control form-control-sm"
+                    id="description" placeholder="Beschreibung"
+                    name="description" value="<?php echo $picture['description']; ?>">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-5 col-xs-6">
+              <input  type="text" class="form-control form-control-sm"
+                      id="alt" placeholder="latitude"
+                      name="alt" value="<?php echo $picture['alt']; ?>">
+            </div>
+            <div>
+              <input  type="text" class="form-control form-control-sm"
+                    id="long" placeholder="longitude"
+                    name="long" value="<?php echo $picture['long']; ?>">
+            </div>
+          </div>
+          <div class="form-group row">
+          <div class="col-sm-5 col-xs-6">
           <span class="button-checkbox">
               <button type="button" class="btn btn-default" data-color="success">Public</button>
               <input type="checkbox" class="hidden"/>
             </span>
+          </div>
+            <div class="col-sm-5 col-xs-6">
             <span class="button-checkbox">
             <button type="button" class="btn btn-default" data-color="danger">DELETE</button>
             <input type="checkbox" class="hidden"/>
           </span>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-5 col-xs-6">
             <button type="submit" name="picture-edit-submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
         </form>
     	</div>
-       </div>
-      </div>
     </div>
+  </div>
+</div>
+</div>
 
 
 
