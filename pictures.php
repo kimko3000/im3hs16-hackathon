@@ -12,9 +12,6 @@
 $picture = get_pictures();
 
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
