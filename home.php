@@ -71,6 +71,8 @@ if($_POST)
 <input type="button" value="<?php echo $like; ?>" class="button_like" id="linkeBtn" />
 </div>
 
+<!-- Like -->
+
 
 <script>
 function initMap() {
