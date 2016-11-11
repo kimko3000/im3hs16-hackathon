@@ -13,11 +13,6 @@ header{
   z-index: 0;
 }
 
-#plus-btn{
-  z-index:99;
-}
-
-
 @-webkit-keyframes HeroBG {
   0% {
     background-position: 0 0;
@@ -239,7 +234,7 @@ label {
   border-radius: 25px;
 }
 
-#login-btn, #plus-btn{
+.login-btn, .plus-btn{
   position: relative;
   left: 1000px;
   bottom: 50px;

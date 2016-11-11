@@ -29,7 +29,7 @@
 
     <header>
       <h1 class="logo">Tourismusbilder</h1>
-      <a href="login.php"><button id="login-btn" class="btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-user"></span></button></a>
+      <a href="login.php"><button class="login-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-user"></span></button></a>
 </header>
 <div id="map"></div>
 

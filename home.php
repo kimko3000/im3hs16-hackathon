@@ -30,9 +30,9 @@ session_start();
 
     <header>
       <h1 class="logo">Tourismusbilder</h1>
-      <a href="pictures.php"><button id="edit-btn" class="btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-pencil"></span></button></a>
-      <a href="upload.php"><button id="plus-btn" class="btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-camera"></span></button></a>
-      <a href="#.php"><button id="plus-btn" class="btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-plus"></span></button></a>
+      <a href="pictures.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-pencil"></span></button></a>
+      <a href="upload.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-camera"></span></button></a>
+      <a href="#.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-plus"></span></button></a>
 </header>
 <div id="map"></div>
 
