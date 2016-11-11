@@ -36,17 +36,6 @@ session_start();
 
 
 
-
-<!-- Like -->
-
-<div class="grid">
-<span id="status"></span><br>
-<input type="button" value="<?php echo $like; ?>" class="button_like" id="linkeBtn" />
-</div>
-
-<!-- Like -->
-
-
 <script>
 function initMap() {
   // Create a map object and specify the DOM element for display.

@@ -89,31 +89,5 @@ $(document).ready(function() {
 
 /////////////////// Google Maps API
 
-/////////////////// Like Funktion
-$(document).ready(function() {
-$("#linkeBtn").removeAttr("disabled");
-$('#linkeBtn').click(function(e)
-    {
-        var val = parseInt($("#linkeBtn").val(), 10);
-        $.post("index.php", {op:"like"},function(data)
-        {
-            if(data==1)
-            {
-                $("#status").html("Liked Sucessfully!!");
-                val = val+1;
-                $("#linkeBtn").val(val);
-                $("#linkeBtn").attr("disabled", "disabled");
-                $("#linkeBtn").css("background-image","url(likebw.png)");
-            }
-            else
-            {
-                $("#status").html("Already Liked!!");
-            }
-        })
-    });
-});
-
-
-
 
 });
