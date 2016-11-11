@@ -25,7 +25,7 @@ if(isset($_POST['upload-submit'])){
     $alt = filter_data($_POST['alt']);
     $long = filter_data($_POST['long']);
     $result = create_poi($title, $description, $alt, $long);
-    echo $result;
+    //echo $result;
         if($result){
           $success = true;
           $success_msg = "Der neue point of interest wurde generiert.</br>";
