@@ -16,8 +16,8 @@ $(document).ready(function() {
 /////////////////////////// Gallerie: http://bootsnipp.com/snippets/7XVM2
     $('.thumbnail').click(function() {
         $('.modal-body').empty();
-        var title = $(this).parent('a').attr("title");
-        $('.modal-title').html(title);
+        //var title = $(this).parent('a').attr("title");
+        //$('.modal-title').html(title);
         $($(this).parents('div').html()).appendTo('.modal-body');
         $('#myModal').modal({
             show: true

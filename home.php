@@ -29,8 +29,8 @@ session_start();
   <body>
 
     <header>
-      <h1 id="logo">Tourismusbilder</h1>
-      <button id="plus-btn" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+      <h1 class="logo">Tourismusbilder</h1>
+      <button id="plus-btn" class="btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
 </header>
 <div id="map"></div>
 
