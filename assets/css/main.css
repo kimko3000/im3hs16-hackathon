@@ -8,10 +8,6 @@ html, body {
 header{
   background-color:  #607d8b;
 }
-
-#logo{
-  color: #ffffff;
-}
 #map {
   height: 90%;
   z-index: 0;
@@ -230,5 +226,27 @@ label {
   background-color: #2D3B55;
 }
 
-.modal-dialog {width:1000px;}
+.modal-dialog {width:600px;}
 .thumbnail {margin-bottom:6px;}
+
+
+.btn-circle, .btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+#login-btn, #plus-btn{
+  position: relative;
+  left: 1000px;
+  bottom: 50px;
+}
+
+.logo {
+  padding: 20px;
+  font-size: 8rem;
+  color: #ffffff;
+}
