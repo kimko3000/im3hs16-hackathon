@@ -46,17 +46,17 @@
         $uploadOk = false;
       }
 
-      if ($uploadOk) 
+      if ($uploadOk)
       {
-        $image_name = time() . randomString() . "." . $file_extension;
-        move_uploaded_file ( $image_file['tmp_name'] , $upload_path . $image_name );
+        $file_name = time() . randomString() . "." . $file_extension;
+        move_uploaded_file ( $image_file['tmp_name'] , $upload_path . $file_name );
   	  } else {
         echo "Leider konnte die Datei nicht hochgeladen werden.";
-        $image_name = "default";
+        $file_name = "default";
       }
   	}
 
-  	return $image_name;
+  	return $file_name;
 
   }
 

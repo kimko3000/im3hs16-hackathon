@@ -16,27 +16,49 @@ $error_msg = "";
 $success = false;
 $success_msg = "";
 
-
 if(isset($_POST['upload-submit'])){
-  // Kontrolle mit isset, ob email und password ausgefüllt wurde
-  if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['alt']) && !empty($_POST['long'])){
-    $title = filter_data($_POST['title']);
-    $description = filter_data($_POST['description']);
-    $alt = filter_data($_POST['alt']);
-    $long = filter_data($_POST['long']);
-        if($result){
-          $success = true;
-          $success_msg = "Bild wurde erfolgreich hochgeladen.</br>";
+    $username = filter_data($_POST['user']);
+    $file_name = "";
+    // Bildupload
+    $uploadOk = true;
+    $upload_path = "img/";   // Zielverzeichnis für hochzuladene Datei
+    $max_file_size = 500000;      // max. Dateigrösse in Byte
+
+    // Filetype kontrollieren
+    if ( ($_FILES['img']['name']  != "")){
+        $filetype = $_FILES['img']['type'];
+        switch($filetype){
+            case "image/jpeg":
+                $file_extension = "jpg";
+                break;
+            case "image/gif":
+                $file_extension = "gif";
+                break;
+            case "image/png":
+                $file_extension = "png";
+                break;
+            default:
+              $uploadOk = false;
         }
-        else{
-          $error = true;
-          $error_msg .= "Es gibt ein Problem mit der Datenbankverbindung.</br>";
+
+        // Dateigrösse kontrollieren
+        $upload_filesize = $_FILES["img"]["size"];
+        if ( $upload_filesize >= $max_file_size) {
+            echo "Leider ist die Datei mit $upload_filesize KB zu gross. <br> Sie darf nicht grösser als $max_file_size sein. ";
+            $uploadOk = false;
         }
-  }else{
-    $error = true;
-    $error_msg .= "Bitte füllen Sie alle Felder aus.</br>";
+
+        if (!$uploadOk) {
+            echo "Leider konnte die Datei nicht hochgeladen werden.";
+        } else {
+            $file_name = $username ."_". time() . "." . $file_extension;
+            move_uploaded_file ($_FILES['img']['tmp_name'], $upload_path . $file_name );
+        }
+    }
+
+    $result = update_user($user_id, $email, $password, $confirm_password, $gender, $firstname, $lastname, $image_name);
   }
-}
+
 
 
 
@@ -69,7 +91,7 @@ if(isset($_POST['upload-submit'])){
             <div class="panel-body">
               <div class="row">
                 <div class="col-lg-12">
-                  <form id="upload-form" action="#" method="post" role="form" style="display: block;">
+                  <form enctype="multipart/form-data" action="<?PHP echo $_SERVER['PHP_SELF'] ?>" method="post">
                     <h2>UPLOAD PICTURE</h2>
                       <div class="form-group">
                         <input type="text" name="title" id="title" tabindex="1" class="form-control" placeholder="title of your picture" value="">
@@ -85,7 +107,7 @@ if(isset($_POST['upload-submit'])){
                       </div>
                       <div class="form-group">
                         <div class="col-sm-5">
-                          <input type="file" name="image" id="image" class="inputstl">
+                          <input type="file" name="img" id="img">
                         </div>
                       </div>
                       <div class="col-xs-6 form-group pull-right">
