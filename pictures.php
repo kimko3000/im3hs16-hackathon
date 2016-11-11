@@ -9,7 +9,25 @@
   require_once('system/data.php');
   require_once('system/security.php');
 
-$picture_list = get_pictures();
+  $picture_list = get_pictures();
+
+//          if(isset($_POST['picture-edit-submit'])){
+//
+//          $title = filter_data($_POST['title']);
+//          $description = filter_data($_POST['description']);
+//          $alt = filter_data($_POST['alt']);
+//          $long = filter_data($_POST['long']);
+//
+//          if(isset($_POST['public'])){
+//          }
+//
+//          if(isset($_POST['delete'])){
+//        }
+//
+//          $result = update_picture($picture_id, $title, $description, $alt, $long);
+//        }
+
+
 
 ?>
 <!DOCTYPE html>
@@ -32,7 +50,11 @@ $picture_list = get_pictures();
       <div class="row">
 
         <h1>Alle Fotos</h1>
-          <?php while ($picture = mysqli_fetch_assoc($picture_list)) {
+
+          <?php
+
+          while ($picture = mysqli_fetch_assoc($picture_list)) {
+            echo $picture['title'];
             //$upload_date = date_parse($picture['datetime_upload']);
     ?>
           <div class="col-lg-3 col-sm-4 col-xs-6"><a title="<?php echo $picture['title']?>" href="#"><img class="thumbnail img-responsive" style="height:300px;width:auto;" src="###"></a></div>
@@ -45,16 +67,9 @@ $picture_list = get_pictures();
                   <h3 class="modal-title"><?php echo $picture['title'] ?></h3>
                 <!--  <p><?php echo $upload_date ?></p> -->
                 </div>
-
             <div class="modal-body">
-
             </div>
-
             <div class="modal-footer">
-
-
-
-
 
               <form id="picture-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" role="form">
                 <div class="form-group row">
@@ -73,20 +88,16 @@ $picture_list = get_pictures();
                           name="long" value="<?php echo $picture['long']; ?>">
                     <span class="button-checkbox">
                         <button type="button" class="btn btn-default" data-color="success">Public</button>
-                        <input type="checkbox" class="hidden"/>
+                        <input type="checkbox" name="public" class="hidden"/>
                     </span>
                       <span class="button-checkbox">
                         <button type="button" class="btn btn-default" data-color="danger">DELETE</button>
-                        <input type="checkbox" class="hidden"/>
+                        <input type="checkbox" name="delete" class="hidden"/>
                       </span>
                   <button type="submit" name="picture-edit-submit" class="btn btn-primary">Save</button>
                 </div>
               </div>
             </form>
-
-
-
-
 
           </div>
               </div>

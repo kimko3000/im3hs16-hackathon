@@ -52,6 +52,35 @@ function get_pictures(){
   return get_result($sql);
 }
 
+function update_picture($picture_id, $title, $description, $alt, $long){
+  $sql_ok = false;
+  $sql = "UPDATE picture SET ";
+  if($title != ""){
+    $sql .= "title = '$title', ";
+    $sql_ok = true;
+  }
+  if($description != ""){
+    $sql .= "description = '$description', ";
+    $sql_ok = true;
+  }
+  if($alt != ""){
+    $sql .= "alt = '$alt', ";
+    $sql_ok = true;
+  }
+  if($long != ""){
+    $sql .= "long = '$long', ";
+    $sql_ok = true;
+  }
+  $sql = substr_replace($sql, ' ', -2, 1);
+  $sql .= " WHERE picture_id = $picture_id ;";
+
+  if($sql_ok){
+    return get_result($sql);
+  }else{
+    return false;
+  }
+}
+
 /* *********************************************************
 /* POI generieren
 /* ****************************************************** */
