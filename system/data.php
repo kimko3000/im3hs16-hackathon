@@ -30,7 +30,7 @@ function login($username , $password){
 /* ****************************************************** */
 
 function register($username, $email , $password){
-  $sql = "INSERT INTO user (username, email, password) VALUES ('$username', '$email', '$password');";
+  $sql = "INSERT INTO user (`sername`, `email`, `password`) VALUES ('$username', '$email', '$password');";
   return get_result($sql);
 }
 
@@ -44,7 +44,7 @@ function checkforexistance($username, $email){
 /* ****************************************************** */
 
 function upload($title, $description, $file_name, $alt, $long, $datetime_shoot){
-  $sql = "INSERT INTO picture (title, description, file_name, alt, long, datetime_shoot) VALUES ('$title', '$description', '$file_name', '$alt', '$long', '$datetime_shoot');";
+  $sql = "INSERT INTO picture (`title`, `description`, `file_name`, `alt`, `long`, `datetime_shoot`) VALUES ('$title', '$description', '$file_name', '$alt', '$long', '$datetime_shoot');";
 }
 
 function get_pictures(){
@@ -85,8 +85,9 @@ function update_picture($picture_id, $title, $description, $alt, $long){
 /* POI generieren
 /* ****************************************************** */
 
-function create($title, $description, $file_name, $alt, $long, $datetime_shoot){
-  $sql = "INSERT INTO point_of_interest (title, description, alt, long) VALUES ('$title', '$description', '$file_name', '$alt', '$long');";
+function create_poi($title, $description, $alt, $long){
+  $sql = "INSERT INTO point_of_interest (`title`, `description`, `alt`, `long`) VALUES ('$title', '$description', '$alt', '$long');";
+  return get_result($sql);
 }
 
 function get_poi(){

@@ -24,6 +24,8 @@ if(isset($_POST['upload-submit'])){
     $description = filter_data($_POST['description']);
     $alt = filter_data($_POST['alt']);
     $long = filter_data($_POST['long']);
+    $result = create_poi($title, $description, $alt, $long);
+    echo $result;
         if($result){
           $success = true;
           $success_msg = "Der neue point of interest wurde generiert.</br>";
@@ -36,6 +38,7 @@ if(isset($_POST['upload-submit'])){
     $error = true;
     $error_msg .= "Bitte füllen Sie alle Felder aus.</br>";
   }
+
 }
 
 
