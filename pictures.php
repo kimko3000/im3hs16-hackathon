@@ -12,7 +12,7 @@
 $pictures = get_pictures();
 
 
-$update_time = date_parse($pictures['datetime_upload']);
+$upload_time = date_parse($pictures['datetime_upload']);
 
 ?>
 
@@ -53,7 +53,7 @@ $update_time = date_parse($pictures['datetime_upload']);
         <div class="modal-header">
     		<button class="close" type="button" data-dismiss="modal">×</button>
     		<h3 class="modal-title"><?php echo $picture['title'] ?></h3>
-        <p><?php echo $upload_date ?></p>
+        <p><?php echo $upload_time ?></p>
     	</div>
     	<div class="modal-body">
 
