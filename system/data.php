@@ -43,8 +43,9 @@ function checkforexistance($username, $email){
 /* Fotos
 /* ****************************************************** */
 
-function upload($title, $description, $file_name, $alt, $long, $datetime_shoot){
-  $sql = "INSERT INTO picture (`title`, `description`, `file_name`, `alt`, `long`, `datetime_shoot`) VALUES ('$title', '$description', '$file_name', '$alt', '$long', '$datetime_shoot');";
+function upload($title, $description, $file_name, $alt, $long){
+  $sql = "INSERT INTO picture (`title`, `description`, `file_name`, `alt`, `long`) VALUES ('$title', '$description', '$file_name', '$alt', '$long');";
+  return get_result($sql);
 }
 
 function get_pictures(){

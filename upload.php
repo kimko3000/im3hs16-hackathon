@@ -9,6 +9,7 @@ session_destroy();
 
 require_once("system/data.php");
 require_once("system/security.php");
+require_once("system/upload.php");
 
 // für Spätere Verwendung initialisieren wir die Variablen $error, $error_msg, $success, $success_msg
 $error = false;
@@ -17,7 +18,10 @@ $success = false;
 $success_msg = "";
 
 if(isset($_POST['upload-submit'])){
-    $username = filter_data($_POST['user']);
+    $title = filter_data($_POST['title']);
+    $description = filter_data($_POST['description']);
+    $alt = filter_data($_POST['alt']);
+    $long = filter_data($_POST['long']);
     $file_name = "";
     // Bildupload
     $uploadOk = true;
@@ -51,12 +55,12 @@ if(isset($_POST['upload-submit'])){
         if (!$uploadOk) {
             echo "Leider konnte die Datei nicht hochgeladen werden.";
         } else {
-            $file_name = $username ."_". time() . "." . $file_extension;
+            $file_name = time() . "." . $file_extension;
             move_uploaded_file ($_FILES['img']['tmp_name'], $upload_path . $file_name );
         }
     }
 
-    $result = update_user($user_id, $email, $password, $confirm_password, $gender, $firstname, $lastname, $image_name);
+    $result = upload($title, $description, $alt, $long, $uploadOk);
   }
 
 
