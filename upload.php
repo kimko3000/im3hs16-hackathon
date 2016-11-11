@@ -112,20 +112,16 @@ if(isset($_POST['register-submit'])){
             <div class="panel-body">
               <div class="row">
                 <div class="col-lg-12">
-                  <form id="login-form" action="#" method="post" role="form" style="display: block;">
-                    <h2>LOGIN</h2>
+                  <form id="upload-form" action="#" method="post" role="form" style="display: block;">
+                    <h2>UPLOAD PICTURE</h2>
                       <div class="form-group">
-                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                        <input type="text" name="title" id="title" tabindex="1" class="form-control" placeholder="enter the title of your picture" value="">
                       </div>
                       <div class="form-group">
-                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                      </div>
-                      <div class="col-xs-6 form-group pull-left checkbox">
-                        <input id="checkbox1" type="checkbox" name="remember">
-                        <label for="checkbox1">Remember Me</label>
+                        <input type="text" name="description" id="description" tabindex="2" class="form-control" placeholder="enter the description of your picture">
                       </div>
                       <div class="col-xs-6 form-group pull-right">
-                            <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                            <input type="submit" name="upload-submit" id="upload-submit" tabindex="4" class="form-control btn btn-login" value="Upload">
                       </div>
                   </form>
                   <form id="register-form" action="#" method="post" role="form" style="display: none;">
