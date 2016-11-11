@@ -11,9 +11,6 @@
 
 $picture = get_pictures();
 
-
-//$update_time = date_parse($picture['datetime_upload']);
-
 ?>
 
 
@@ -39,6 +36,7 @@ $picture = get_pictures();
 
         <h1>Alle Fotos</h1>
           <?php while ($post = mysqli_fetch_array($picture)) {
+            //$update_time = date_parse($picture['datetime_upload']);
     ?>
           <div class="col-lg-3 col-sm-4 col-xs-6"><a title="<?php echo $post['title']?>" href="#"><img class="thumbnail img-responsive" style="height:300px;width:auto;" src="###"></a></div>
 
@@ -104,9 +102,9 @@ $picture = get_pictures();
               </div>
             </form>
           </div>
-        </div>
-      </div>
-    </div>
+              </div>
+            </div>
+          </div>
     <?php } ?>
   </div>
 </div>
