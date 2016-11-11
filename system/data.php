@@ -44,7 +44,7 @@ function checkforexistance($username, $email){
 /* ****************************************************** */
 
 function upload($title, $description, $file_name, $alt, $long, $datetime_shoot){
-  $sql = "INSERT INTO `picture`(`title`, `description`, `file_name`, `alt`, `long`,`datetime_shoot`) VALUES ('$title', '$description', '$file_name', '$alt', '$long', '$datetime_shoot');";
+  $sql = "INSERT INTO picture (title, description, file_name, alt, long, datetime_shoot) VALUES ('$title', '$description', '$file_name', '$alt', '$long', '$datetime_shoot');";
 }
 
 function get_pictures(){
@@ -56,12 +56,12 @@ function get_pictures(){
 /* POI generieren
 /* ****************************************************** */
 
-function upload($title, $description, $file_name, $alt, $long, $datetime_shoot){
-  $sql = "INSERT INTO `picture`(`title`, `description`, `file_name`, `alt`, `long`,`datetime_shoot`) VALUES ('$title', '$description', '$file_name', '$alt', '$long', '$datetime_shoot');";
+function create($title, $description, $file_name, $alt, $long, $datetime_shoot){
+  $sql = "INSERT INTO point_of_interest (title, description, alt, long) VALUES ('$title', '$description', '$file_name', '$alt', '$long');";
 }
 
-function get_pictures(){
-  $sql = "SELECT * FROM picture;";
+function get_poi(){
+  $sql = "SELECT * FROM point_of_interest;";
   return get_result($sql);
 }
 
