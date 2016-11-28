@@ -49,7 +49,7 @@ if(isset($_POST['upload-submit'])){
 
         // Dateigrösse kontrollieren
         $upload_filesize = $_FILES["img"]["size"];
-        if ( $upload_filesize >= $max_file_size) {
+        if ( $upload_filesize >= $max_file_size || $_FILES["img"]["error"]) {
             echo "Leider ist die Datei mit $upload_filesize KB zu gross. <br> Sie darf nicht grösser als $max_file_size sein. ";
             $uploadOk = false;
         }
@@ -59,10 +59,9 @@ if(isset($_POST['upload-submit'])){
         } else {
             $file_name = time() . "." . $file_extension;
             move_uploaded_file($_FILES['img']['tmp_name'], $upload_path . $file_name );
+            $result = upload($title, $description, $alt, $long, $file_name);
         }
     }
-
-    $result = upload($title, $description, $alt, $long, $uploadOk);
   }
   else{
     $error = true;
