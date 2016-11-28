@@ -2,10 +2,11 @@
 <?php
 
 session_start();
-if(isset($_SESSION['user_id']))
-unset($_SESSION['user_id']);
-session_destroy();
-
+if (!isset($_SESSION['user_id'])) {
+    header('Location:login.php');
+} else {
+    $user_id = $_SESSION['user_id'];
+}
 
 require_once("system/data.php");
 require_once("system/security.php");
@@ -56,7 +57,7 @@ if(isset($_POST['upload-submit'])){
             echo "Leider konnte die Datei nicht hochgeladen werden.";
         } else {
             $file_name = time() . "." . $file_extension;
-            move_uploaded_file ($_FILES['img']['tmp_name'], $upload_path . $file_name );
+            move_uploaded_file($_FILES['img']['tmp_name'], $upload_path . $file_name );
         }
     }
 
