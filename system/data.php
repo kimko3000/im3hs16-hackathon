@@ -96,6 +96,14 @@ function get_poi(){
   return get_result($sql);
 }
 
+/* *********************************************************
+/* FOTO Löschen
+/* ****************************************************** */
+
+function delete_picture($picture_id){
+    $sql = "DELETE FROM picture WHERE picture_id = $picture_id ;";
+		return get_result($sql);
+	}
 
 
 ?>

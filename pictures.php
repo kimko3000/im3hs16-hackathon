@@ -9,24 +9,23 @@
   require_once('system/data.php');
   require_once('system/security.php');
 
+
+  if(isset($_POST['picture-edit-submit'])){
+    $title = filter_data($_POST['title']);
+    $description = filter_data($_POST['description']);
+    $lat = filter_data($_POST['lat']);
+    $lng = filter_data($_POST['lng']);
+    $picture_id = filter_data($_POST['picture_id']);
+
+    $result = update_picture($picture_id, $title, $description, $lat, $lng);
+  }
+
+  if(isset($_POST['delete'])){
+    $delete_id = $_POST['picture_id'];
+    delete_picture($delete_id);
+  }
+
   $picture_list = get_pictures();
-          if(isset($_POST['picture-edit-submit'])){
-            $title = filter_data($_POST['title']);
-            $description = filter_data($_POST['description']);
-            $lat = filter_data($_POST['lat']);
-            $lng = filter_data($_POST['lng']);
-            $picture_id = filter_data($_POST['picture_id']);
-
-//          if(isset($_POST['public'])){
-//          }
-
-//          if(isset($_POST['delete'])){
-//        }
-
-            $result = update_picture($picture_id, $title, $description, $lat, $lng);
-        }
-
-
 
 ?>
 <!DOCTYPE html>
@@ -88,17 +87,10 @@
                       <input  type="text" class="form-control form-control-sm"
                             id="lng" placeholder="longitude"
                             name="lng" value="<?php echo $picture['lng']; ?>">
-                            <input  type="hidden"
-                                  name="picture_id" value="<?php echo $picture['picture_id']; ?>">
-                      <span class="button-checkbox">
-                          <button type="button" class="btn btn-default" data-color="success">Public</button>
-                          <input type="checkbox" name="public" class="hidden"/>
-                      </span>
-                        <span class="button-checkbox">
-                          <button type="button" class="btn btn-default" data-color="danger">DELETE</button>
-                          <input type="checkbox" name="delete" class="hidden"/>
-                        </span>
-                    <button type="submit" name="picture-edit-submit" class="btn btn-primary">Save</button>
+                      <input  type="hidden" name="picture_id" value="<?php echo $picture['picture_id']; ?>">
+                          <button type="submit" name="public" class="btn btn-default" data-color="success">Public</button>
+                          <button type="submit" name="delete" class="btn btn-default" data-color="danger" value="<?php echo $picture['picture_id']; ?>">DELETE</button>
+                          <button type="submit" name="picture-edit-submit" class="btn btn-primary">Save</button>
                   </div>
                 </div>
               </form>
