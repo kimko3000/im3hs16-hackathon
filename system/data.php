@@ -43,8 +43,8 @@ function checkforexistance($username, $email){
 /* Fotos
 /* ****************************************************** */
 
-function upload($title, $description, $alt, $lng, $file_name){
-  $sql = "INSERT INTO picture (`title`, `description`, `alt`, `lng`, `file_name`) VALUES ('$title', '$description', '$alt', '$lng', '$file_name');";
+function upload($title, $description, $lat, $lng, $file_name){
+  $sql = "INSERT INTO picture (`title`, `description`, `lat`, `lng`, `file_name`) VALUES ('$title', '$description', '$lat', '$lng', '$file_name');";
   return get_result($sql);
 }
 
@@ -53,7 +53,7 @@ function get_pictures(){
   return get_result($sql);
 }
 
-function update_picture($picture_id, $title, $description, $alt, $lng){
+function update_picture($picture_id, $title, $description, $lat, $lng){
   $sql_ok = false;
   $sql = "UPDATE picture SET ";
   if($title != ""){
@@ -64,8 +64,8 @@ function update_picture($picture_id, $title, $description, $alt, $lng){
     $sql .= "description = '$description', ";
     $sql_ok = true;
   }
-  if($alt != ""){
-    $sql .= "alt = '$alt', ";
+  if($lat != ""){
+    $sql .= "lat = '$lat', ";
     $sql_ok = true;
   }
   if($lng != ""){
@@ -86,8 +86,8 @@ function update_picture($picture_id, $title, $description, $alt, $lng){
 /* POI generieren
 /* ****************************************************** */
 
-function create_poi($title, $description, $alt, $lng){
-  $sql = "INSERT INTO point_of_interest (`title`, `description`, `alt`, `lng`) VALUES ('$title', '$description', '$alt', '$lng');";
+function create_poi($title, $description, $lat, $lng){
+  $sql = "INSERT INTO point_of_interest (`title`, `description`, `lat`, `lng`) VALUES ('$title', '$description', '$lat', '$lng');";
   return get_result($sql);
 }
 
