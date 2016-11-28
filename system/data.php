@@ -30,7 +30,7 @@ function login($username , $password){
 /* ****************************************************** */
 
 function register($username, $email , $password){
-  $sql = "INSERT INTO user (`sername`, `email`, `password`) VALUES ('$username', '$email', '$password');";
+  $sql = "INSERT INTO user (`username`, `email`, `password`) VALUES ('$username', '$email', '$password');";
   return get_result($sql);
 }
 
