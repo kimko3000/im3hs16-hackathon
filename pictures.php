@@ -63,7 +63,11 @@
             echo $picture['title'];
             //$upload_date = date_parse($picture['datetime_upload']);
     ?>
-          <div class="col-lg-3 col-sm-4 col-xs-6"><a title="<?php echo $picture['title']?>" href="#"><img class="thumbnail img-responsive" style="height:300px;width:auto;" src="###"></a></div>
+          <div class="col-lg-3 col-sm-4 col-xs-6">
+            <a title="<?php echo $picture['title']?>" href="#">
+              <img class="thumbnail img-responsive" style="height:300px;width:auto;" src="img/<?php echo $picture['file_name']?>">
+            </a>
+          </div>
 
           <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
