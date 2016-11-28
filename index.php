@@ -26,11 +26,10 @@
     <link rel="stylesheet" href="assets/css/main.css" type="text/css">
   </head>
   <body>
-
-    <header>
+    <div class="page-header">
       <h1 class="logo">Tourismusbilder</h1>
       <a href="login.php"><button class="login-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-user"></span></button></a>
-</header>
+    </div>
 <div id="map"></div>
 
 

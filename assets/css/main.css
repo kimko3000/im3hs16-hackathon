@@ -5,9 +5,10 @@ html, body {
   margin: 0;
   padding: 0;
 }
-header{
+.page-header{
   background-color:  #607d8b;
 }
+
 #map {
   height: 90%;
   z-index: 0;

@@ -102,13 +102,13 @@ if(isset($_POST['register-submit'])){
   </head>
   <body>
 
-    <header>
+    <div class="page-header">
       <h1 class="logo">Tourismusbilder</h1>
       <a href="index.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-home"></span></button></a>
       <a href="pictures.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-picture"></span></button></a>
       <a href="upload.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-camera"></span></button></a>
       <a href="create_poi.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-map-marker"></span></button></a>
-    </header>
+    </div>
 
     <!-- http://bootsnipp.com/snippets/kE9rg -->
     <div class="container">
