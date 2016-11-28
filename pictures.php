@@ -10,13 +10,11 @@
   require_once('system/security.php');
 
   $picture_list = get_pictures();
-
           if(isset($_POST['picture-edit-submit'])){
-
-          $title = filter_data($_POST['title']);
-          $description = filter_data($_POST['description']);
-          $alt = filter_data($_POST['alt']);
-          $long = filter_data($_POST['long']);
+            $title = filter_data($_POST['title']);
+            $description = filter_data($_POST['description']);
+            $alt = filter_data($_POST['alt']);
+            $long = filter_data($_POST['long']);
 
 //          if(isset($_POST['public'])){
 //          }
@@ -24,7 +22,7 @@
 //          if(isset($_POST['delete'])){
 //        }
 
-          $result = update_picture($picture_id, $title, $description, $alt, $long);
+            $result = update_picture($picture_id, $title, $description, $alt, $long);
         }
 
 
@@ -44,6 +42,13 @@
     <link rel="stylesheet" href="assets/css/main.css" type="text/css">
   </head>
   <body>
+
+    <header>
+      <h1 class="logo">Tourismusbilder</h1>
+      <a href="pictures.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-picture"></span></button></a>
+      <a href="upload.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-camera"></span></button></a>
+      <a href="create_poi.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-map-marker"></span></button></a>
+    </header>
 
 
     <div class="container">
