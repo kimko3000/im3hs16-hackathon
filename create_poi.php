@@ -19,13 +19,13 @@ $success_msg = "";
 
 
 if(isset($_POST['upload-submit'])){
-  // Kontrolle mit !empty, ob titel, description, alt, long eingefügt wurden
-  if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['alt']) && !empty($_POST['long'])){
+  // Kontrolle mit !empty, ob titel, description, lat, lng eingefügt wurden
+  if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['lat']) && !empty($_POST['lng'])){
     $title = filter_data($_POST['title']);
     $description = filter_data($_POST['description']);
-    $alt = filter_data($_POST['alt']);
-    $long = filter_data($_POST['long']);
-    $result = create_poi($title, $description, $alt, $long);
+    $lat = filter_data($_POST['lat']);
+    $lng = filter_data($_POST['lng']);
+    $result = create_poi($title, $description, $lat, $lng);
     //echo $result;
         if($result){
           $success = true;
@@ -89,10 +89,10 @@ if(isset($_POST['upload-submit'])){
                         <input type="text" name="description" id="description" tabindex="2" class="form-control" placeholder="description of the point of interest">
                       </div>
                       <div class="form-group">
-                        <input type="text" name="alt" id="alt" tabindex="3" class="form-control" placeholder="enter latitude">
+                        <input type="text" name="lat" id="lat" tabindex="3" class="form-control" placeholder="enter latitude">
                       </div>
                       <div class="form-group">
-                        <input type="text" name="long" id="long" tabindex="4" class="form-control" placeholder="enter longitude">
+                        <input type="text" name="lng" id="lng" tabindex="4" class="form-control" placeholder="enter longitude">
                       </div>
                       <div class="col-xs-6 form-group pull-right">
                             <input type="submit" name="upload-submit" id="upload-submit" tabindex="4" class="form-control btn btn-login" value="Create">

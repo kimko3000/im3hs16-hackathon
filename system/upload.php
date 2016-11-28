@@ -8,11 +8,11 @@
   $success_msg = "";
 
   if(isset($_POST['upload-submit'])){
-    if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['alt']) && !empty($_POST['long'])){
+    if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['lat']) && !empty($_POST['lng'])){
       $title = filter_data($_POST['title']);
       $description = filter_data($_POST['description']);
-      $alt = filter_data($_POST['alt']);
-      $long = filter_data($_POST['long']);
+      $lat = filter_data($_POST['lat']);
+      $lng = filter_data($_POST['lng']);
       $file_name = "";
       // Bildupload
       $uploadOk = true;
@@ -48,7 +48,7 @@
           } else {
               $file_name = time() . "." . $file_extension;
               move_uploaded_file($_FILES['img']['tmp_name'], $upload_path . $file_name );
-              $result = upload($title, $description, $alt, $long, $file_name);
+              $result = upload($title, $description, $lat, $lng, $file_name);
               $success = true;
               $success_msg .= "Dein Bild wurde erfolgreich hochgeladen und muss nun nur noch von einem Moderator akzeptiert werden.";
           }

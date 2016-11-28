@@ -15,10 +15,9 @@ $(document).ready(function() {
     });
 /////////////////////////// Gallerie: http://bootsnipp.com/snippets/7XVM2
     $('.thumbnail').click(function() {
-        $('.modal-body').empty();
-        //var title = $(this).parent('a').attr("title");
-        //$('.modal-title').html(title);
-        $($(this).parents('div').html()).appendTo('.modal-body');
+        $('.modal-header').html($(this).closest('thumbnail-parent').find('.modal-title').html());
+        $('.modal-body').html($(this).clone());
+        $('.modal-footer').html($(this).closest('.thumbnail-parent').find('.thumbnail-modal').html());
         $('#myModal').modal({
             show: true
         });

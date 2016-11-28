@@ -64,7 +64,7 @@ require_once("system/upload.php");
                         <input type="text" name="alt" id="alt" tabindex="3" class="form-control" placeholder="enter latitude">
                       </div>
                       <div class="form-group">
-                        <input type="text" name="long" id="long" tabindex="4" class="form-control" placeholder="enter longitude">
+                        <input type="text" name="lng" id="lng" tabindex="4" class="form-control" placeholder="enter longitude">
                       </div>
                       <div class="form-group">
                         <div class="col-sm-5">

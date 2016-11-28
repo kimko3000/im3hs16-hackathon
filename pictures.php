@@ -13,8 +13,9 @@
           if(isset($_POST['picture-edit-submit'])){
             $title = filter_data($_POST['title']);
             $description = filter_data($_POST['description']);
-            $alt = filter_data($_POST['alt']);
-            $long = filter_data($_POST['long']);
+            $lat = filter_data($_POST['lat']);
+            $lng = filter_data($_POST['lng']);
+            $picture_id = filter_data($_POST['picture_id']);
 
 //          if(isset($_POST['public'])){
 //          }
@@ -22,7 +23,7 @@
 //          if(isset($_POST['delete'])){
 //        }
 
-            $result = update_picture($picture_id, $title, $description, $alt, $long);
+            $result = update_picture($picture_id, $title, $description, $lat, $lng);
         }
 
 
@@ -60,60 +61,63 @@
           <?php
 
           while ($picture = mysqli_fetch_assoc($picture_list)) {
-            echo $picture['title'];
-            //$upload_date = date_parse($picture['datetime_upload']);
     ?>
-          <div class="col-lg-3 col-sm-4 col-xs-6">
+          <div class="col-lg-3 col-sm-4 col-xs-6 thumbnail-parent">
             <a title="<?php echo $picture['title']?>" href="#">
               <img class="thumbnail img-responsive" style="height:300px;width:auto;" src="img/<?php echo $picture['file_name']?>">
             </a>
-          </div>
-
-          <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button class="close" type="button" data-dismiss="modal">×</button>
-                  <h3 class="modal-title"><?php echo $picture['title'] ?></h3>
-                <!--  <p><?php echo $upload_date ?></p> -->
-                </div>
-            <div class="modal-body">
+            <div class="modal-title">
+            <h3><?php echo $picture['title'] ?></h3>
+            <!--  <p><?php echo $upload_date ?></p> -->
             </div>
-            <div class="modal-footer">
 
-              <form id="picture-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" role="form">
-                <div class="form-group row">
-                  <div class="col-sm-5 col-xs-6">
-                    <input  type="text" class="form-control form-control-sm"
-                            id="title" placeholder="Titel"
-                            name="title" value="<?php echo $picture['title']; ?>">
-                    <input  type="text" class="form-control form-control-sm"
-                          id="description" placeholder="Beschreibung"
-                          name="description" value="<?php echo $picture['description']; ?>">
-                    <input  type="text" class="form-control form-control-sm"
-                            id="alt" placeholder="latitude"
-                            name="alt" value="<?php echo $picture['alt']; ?>">
-                    <input  type="text" class="form-control form-control-sm"
-                          id="long" placeholder="longitude"
-                          name="long" value="<?php echo $picture['long']; ?>">
-                    <span class="button-checkbox">
-                        <button type="button" class="btn btn-default" data-color="success">Public</button>
-                        <input type="checkbox" name="public" class="hidden"/>
-                    </span>
+            <div class="thumbnail-modal">
+                <form id="picture-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" role="form">
+                  <div class="form-group row">
+                    <div class="col-sm-5 col-xs-6">
+                      <input  type="text" class="form-control form-control-sm"
+                              id="title" placeholder="Titel"
+                              name="title" value="<?php echo $picture['title']; ?>">
+                      <input  type="text" class="form-control form-control-sm"
+                            id="description" placeholder="Beschreibung"
+                            name="description" value="<?php echo $picture['description']; ?>">
+                      <input  type="text" class="form-control form-control-sm"
+                              id="lat" placeholder="latitude"
+                              name="lat" value="<?php echo $picture['lat']; ?>">
+                      <input  type="text" class="form-control form-control-sm"
+                            id="lng" placeholder="longitude"
+                            name="lng" value="<?php echo $picture['lng']; ?>">
+                            <input  type="hidden"
+                                  name="picture_id" value="<?php echo $picture['picture_id']; ?>">
                       <span class="button-checkbox">
-                        <button type="button" class="btn btn-default" data-color="danger">DELETE</button>
-                        <input type="checkbox" name="delete" class="hidden"/>
+                          <button type="button" class="btn btn-default" data-color="success">Public</button>
+                          <input type="checkbox" name="public" class="hidden"/>
                       </span>
-                  <button type="submit" name="picture-edit-submit" class="btn btn-primary">Save</button>
+                        <span class="button-checkbox">
+                          <button type="button" class="btn btn-default" data-color="danger">DELETE</button>
+                          <input type="checkbox" name="delete" class="hidden"/>
+                        </span>
+                    <button type="submit" name="picture-edit-submit" class="btn btn-primary">Save</button>
+                  </div>
                 </div>
-              </div>
-            </form>
-
-          </div>
-              </div>
+              </form>
             </div>
           </div>
     <?php } ?>
+  </div>
+</div>
+
+<div tabindex="-1" class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" type="button" data-dismiss="modal">×</button>
+      </div>
+  <div class="modal-body">
+  </div>
+  <div class="modal-footer">
+  </div>
+    </div>
   </div>
 </div>
 
