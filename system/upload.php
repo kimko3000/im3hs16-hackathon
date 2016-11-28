@@ -48,7 +48,7 @@
 
       if ($uploadOk)
       {
-        $file_name = time() . randomString() . "." . $file_extension;
+        $file_name = time() . $str . "." . $file_extension;
         move_uploaded_file( $image_file['tmp_name'] , $upload_path . $file_name );
   	  } else {
         echo "Leider konnte die Datei nicht hochgeladen werden.";
