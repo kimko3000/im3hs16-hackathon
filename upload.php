@@ -61,7 +61,7 @@ require_once("system/upload.php");
                         <input type="text" name="description" id="description" tabindex="2" class="form-control" placeholder="description of your picture">
                       </div>
                       <div class="form-group">
-                        <input type="text" name="alt" id="alt" tabindex="3" class="form-control" placeholder="enter latitude">
+                        <input type="text" name="lat" id="lat" tabindex="3" class="form-control" placeholder="enter latitude">
                       </div>
                       <div class="form-group">
                         <input type="text" name="lng" id="lng" tabindex="4" class="form-control" placeholder="enter longitude">
