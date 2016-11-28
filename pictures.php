@@ -11,21 +11,21 @@
 
   $picture_list = get_pictures();
 
-//          if(isset($_POST['picture-edit-submit'])){
-//
-//          $title = filter_data($_POST['title']);
-//          $description = filter_data($_POST['description']);
-//          $alt = filter_data($_POST['alt']);
-//          $long = filter_data($_POST['long']);
-//
+          if(isset($_POST['picture-edit-submit'])){
+
+          $title = filter_data($_POST['title']);
+          $description = filter_data($_POST['description']);
+          $alt = filter_data($_POST['alt']);
+          $long = filter_data($_POST['long']);
+
 //          if(isset($_POST['public'])){
 //          }
-//
+
 //          if(isset($_POST['delete'])){
 //        }
-//
-//          $result = update_picture($picture_id, $title, $description, $alt, $long);
-//        }
+
+          $result = update_picture($picture_id, $title, $description, $alt, $long);
+        }
 
 
 
