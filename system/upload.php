@@ -52,6 +52,9 @@
               $success = true;
               $success_msg .= "Dein Bild wurde erfolgreich hochgeladen und muss nun nur noch von einem Moderator akzeptiert werden.";
           }
+      }else {
+        $error = true;
+        $error_msg .= "Du hast leider noch kein Bild ausgewählt, welches du hochladen möchtest.</br>";
       }
     }
     else{
