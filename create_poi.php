@@ -19,7 +19,7 @@ $success_msg = "";
 
 
 if(isset($_POST['upload-submit'])){
-  // Kontrolle mit isset, ob email und password ausgefüllt wurde
+  // Kontrolle mit !empty, ob titel, description, alt, long eingefügt wurden
   if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['alt']) && !empty($_POST['long'])){
     $title = filter_data($_POST['title']);
     $description = filter_data($_POST['description']);

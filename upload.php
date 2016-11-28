@@ -19,6 +19,7 @@ $success = false;
 $success_msg = "";
 
 if(isset($_POST['upload-submit'])){
+  if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['alt']) && !empty($_POST['long'])){
     $title = filter_data($_POST['title']);
     $description = filter_data($_POST['description']);
     $alt = filter_data($_POST['alt']);
@@ -63,7 +64,11 @@ if(isset($_POST['upload-submit'])){
 
     $result = upload($title, $description, $alt, $long, $uploadOk);
   }
-
+  else{
+    $error = true;
+    $error_msg .= "Bitte füllen Sie alle Felder aus.</br>";
+  }
+}
 
 
 
