@@ -29,7 +29,7 @@ if(isset($_POST['upload-submit'])){
     //echo $result;
         if($result){
           $success = true;
-          $success_msg = "Der neue point of interest wurde generiert.</br>";
+          $success_msg = "Der neue Point-Of-Interest wurde gespeichert.</br>";
         }
         else{
           $error = true;
