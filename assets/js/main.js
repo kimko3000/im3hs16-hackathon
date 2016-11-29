@@ -15,7 +15,7 @@ $(document).ready(function() {
     });
 /////////////////////////// Gallerie: http://bootsnipp.com/snippets/7XVM2
     $('.thumbnail').click(function() {
-        $('.modal-header').html($(this).closest('thumbnail-parent').find('.modal-title').html());
+        $('.modal-header').prepend($(this).closest('.thumbnail-parent').find('.modal-title').html());
         $('.modal-body').html($(this).clone());
         $('.modal-footer').html($(this).closest('.thumbnail-parent').find('.thumbnail-modal').html());
         $('#myModal').modal({

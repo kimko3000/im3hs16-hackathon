@@ -7,7 +7,7 @@
 }
 function get_result($sql){
   $db = get_db_connection();
-   echo $sql;
+  // echo $sql;
   $result = mysqli_query($db,$sql);
   mysqli_close($db);
   return $result;
@@ -94,6 +94,7 @@ function get_poi(){
 function delete_picture($picture_id){
     $sql = "DELETE FROM picture WHERE picture_id = $picture_id ;";
 		return get_result($sql);
+
 }
 
 
@@ -106,5 +107,14 @@ function public_picture($picture_id){
   		return get_result($sql);
 }
 
+
+	}
+  /* *********************************************************
+  /* FOTO publizieren
+  /* ****************************************************** */
+  function public_picture($picture_id){
+      $sql = "UPDATE picture SET public = 1 WHERE picture_id = $picture_id ;";
+  		return get_result($sql);
+  	}
 
 ?>
