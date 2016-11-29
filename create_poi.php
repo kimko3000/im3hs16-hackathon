@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['user_id'])) {
     header('Location:login.php');
-} else {
+}else{
     $user_id = $_SESSION['user_id'];
 }
 require_once("system/data.php");
@@ -24,8 +24,7 @@ if(isset($_POST['upload-submit'])){
         if($result){
           $success = true;
           $success_msg .= "Der neue Point-Of-Interest wurde gespeichert.</br>";
-        }
-        else{
+        }else{
           $error = true;
           $error_msg .= "Es gibt ein Problem mit der Datenbankverbindung.</br>";
         }
@@ -35,6 +34,7 @@ if(isset($_POST['upload-submit'])){
   }
 }
  ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -78,7 +78,7 @@ if(isset($_POST['upload-submit'])){
                         <input type="text" name="lng" id="lng" tabindex="4" class="form-control" placeholder="enter longitude">
                       </div>
                       <div class="col-xs-6 form-group pull-right">
-                            <input type="submit" name="upload-submit" id="upload-submit" tabindex="4" class="form-control btn btn-login" value="Create">
+                        <input type="submit" name="upload-submit" id="upload-submit" tabindex="4" class="form-control btn btn-login" value="Create">
                       </div>
                   </form>
                 </div>

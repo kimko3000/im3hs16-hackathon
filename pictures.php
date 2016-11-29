@@ -84,14 +84,14 @@
                               id="title" placeholder="Titel"
                               name="title" value="<?php echo $picture['title']; ?>">
                       <input  type="text" class="form-control form-control-sm"
-                            id="description" placeholder="Beschreibung"
-                            name="description" value="<?php echo $picture['description']; ?>">
+                              id="description" placeholder="Beschreibung"
+                              name="description" value="<?php echo $picture['description']; ?>">
                       <input  type="text" class="form-control form-control-sm"
                               id="lat" placeholder="latitude"
                               name="lat" value="<?php echo $picture['lat']; ?>">
                       <input  type="text" class="form-control form-control-sm"
-                            id="lng" placeholder="longitude"
-                            name="lng" value="<?php echo $picture['lng']; ?>">
+                              id="lng" placeholder="longitude"
+                              name="lng" value="<?php echo $picture['lng']; ?>">
                       <input  type="hidden" name="picture_id" value="<?php echo $picture['picture_id']; ?>">
                           <button type="submit" name="public" class="btn btn-default" data-color="success" value="<?php echo $picture['picture_id']; ?>" >Public</button>
                           <button type="submit" name="delete" class="btn btn-default" data-color="danger" value="<?php echo $picture['picture_id']; ?>">DELETE</button>
@@ -101,8 +101,8 @@
               </form>
             </div>
           </div>
-    <?php } ?>
-  </div>
+        <?php } ?>
+    </div>
 </div>
 
 <div tabindex="-1" class="modal fade" id="myModal" role="dialog">

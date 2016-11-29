@@ -31,16 +31,22 @@ function checkforexistance($username, $email){
   return get_result($sql);
 }
 /* *********************************************************
-/* Fotos
+/* Foto uploaden
 /* ****************************************************** */
 function upload($title, $description, $lat, $lng, $file_name){
   $sql = "INSERT INTO picture (`title`, `description`, `lat`, `lng`, `file_name`) VALUES ('$title', '$description', '$lat', '$lng', '$file_name');";
   return get_result($sql);
 }
+/* *********************************************************
+/* Bilder anzeigen
+/* ****************************************************** */
 function get_pictures(){
   $sql = "SELECT * FROM picture;";
   return get_result($sql);
 }
+/* *********************************************************
+/* Foto updaten
+/* ****************************************************** */
 function update_picture($picture_id, $title, $description, $lat, $lng){
   $sql_ok = false;
   $sql = "UPDATE picture SET ";
@@ -72,6 +78,7 @@ function update_picture($picture_id, $title, $description, $lat, $lng){
 /* *********************************************************
 /* POI generieren
 /* ****************************************************** */
+
 function create_poi($title, $description, $lat, $lng){
   $sql = "INSERT INTO point_of_interest (`title`, `description`, `lat`, `lng`) VALUES ('$title', '$description', '$lat', '$lng');";
   return get_result($sql);
@@ -80,25 +87,24 @@ function get_poi(){
   $sql = "SELECT * FROM point_of_interest;";
   return get_result($sql);
 }
+
 /* *********************************************************
 /* FOTO Löschen
 /* ****************************************************** */
 function delete_picture($picture_id){
     $sql = "DELETE FROM picture WHERE picture_id = $picture_id ;";
 		return get_result($sql);
-	}
-<<<<<<< Updated upstream
+}
+
 
   /* *********************************************************
   /* FOTO publizieren
   /* ****************************************************** */
 
-  function public_picture($picture_id){
+function public_picture($picture_id){
       $sql = "UPDATE picture SET public = 1 WHERE picture_id = $picture_id ;";
   		return get_result($sql);
-  	}
+}
 
 
-=======
->>>>>>> Stashed changes
 ?>
