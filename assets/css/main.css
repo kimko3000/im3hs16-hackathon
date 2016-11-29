@@ -302,3 +302,7 @@ label {
 .modal-title {
     display: none;
 }
+
+.modal-header h3 {
+  display: inline-block;
+}
