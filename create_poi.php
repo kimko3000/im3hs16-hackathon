@@ -20,7 +20,7 @@ if(isset($_POST['upload-submit'])){
     $lat = filter_data($_POST['lat']);
     $lng = filter_data($_POST['lng']);
     $result = create_poi($title, $description, $lat, $lng);
-    //echo $result;
+    echo $result;
         if($result){
           $success = true;
           $success_msg .= "Der neue Point-Of-Interest wurde gespeichert.</br>";

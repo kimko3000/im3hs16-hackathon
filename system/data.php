@@ -7,7 +7,7 @@
 }
 function get_result($sql){
   $db = get_db_connection();
-   echo $sql;
+  // echo $sql;
   $result = mysqli_query($db,$sql);
   mysqli_close($db);
   return $result;
@@ -87,18 +87,11 @@ function delete_picture($picture_id){
     $sql = "DELETE FROM picture WHERE picture_id = $picture_id ;";
 		return get_result($sql);
 	}
-<<<<<<< Updated upstream
-
   /* *********************************************************
   /* FOTO publizieren
   /* ****************************************************** */
-
   function public_picture($picture_id){
       $sql = "UPDATE picture SET public = 1 WHERE picture_id = $picture_id ;";
   		return get_result($sql);
   	}
-
-
-=======
->>>>>>> Stashed changes
 ?>
