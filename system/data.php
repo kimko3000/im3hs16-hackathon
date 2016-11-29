@@ -105,5 +105,14 @@ function delete_picture($picture_id){
 		return get_result($sql);
 	}
 
+  /* *********************************************************
+  /* FOTO publizieren
+  /* ****************************************************** */
+
+  function public_picture($picture_id){
+      $sql = "UPDATE picture SET public = 1 WHERE picture_id = $picture_id ;";
+  		return get_result($sql);
+  	}
+
 
 ?>

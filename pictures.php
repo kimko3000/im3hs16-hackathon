@@ -25,6 +25,15 @@
     delete_picture($delete_id);
   }
 
+  /* *********************************************************
+  /* Foto publizieren
+  /* ****************************************************** */
+
+  if(isset($_POST['public'])){
+    $public_id = $_POST['picture_id'];
+    public_picture($public_id);
+  }
+
   $picture_list = get_pictures();
 
 ?>
@@ -88,7 +97,7 @@
                             id="lng" placeholder="longitude"
                             name="lng" value="<?php echo $picture['lng']; ?>">
                       <input  type="hidden" name="picture_id" value="<?php echo $picture['picture_id']; ?>">
-                          <button type="submit" name="public" class="btn btn-default" data-color="success">Public</button>
+                          <button type="submit" name="public" class="btn btn-default" data-color="success" value="<?php echo $picture['picture_id']; ?>" >Public</button>
                           <button type="submit" name="delete" class="btn btn-default" data-color="danger" value="<?php echo $picture['picture_id']; ?>">DELETE</button>
                           <button type="submit" name="picture-edit-submit" class="btn btn-primary">Save</button>
                   </div>
