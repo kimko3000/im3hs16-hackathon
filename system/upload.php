@@ -34,6 +34,7 @@
           // Dateigrösse kontrollieren
           $upload_filesize = $_FILES["img"]["size"];
           if ( $upload_filesize >= $max_file_size || $_FILES["img"]["error"]) {
+              $error = true;
               $error_msg .= "Dein Bild darf nicht grösser als $max_file_size sein. ";
               $uploadOk = false;
           }
