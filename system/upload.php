@@ -38,7 +38,7 @@
 
           // Dateigrösse kontrollieren
           $upload_filesize = $_FILES["img"]["size"];
-          if ( $upload_filesize >= $max_file_size || $_FILES["img"]["error"]) {
+          if ($upload_filesize >= $max_file_size || $_FILES["img"]["error"]) {
               $error = true;
               $error_msg .= "Dein Bild darf nicht grösser als $max_file_size sein. ";
               $uploadOk = false;
@@ -51,12 +51,12 @@
               $result = upload($title, $description, $lat, $lng, $file_name);
               $success = true;
               $success_msg .= "Dein Bild wurde erfolgreich hochgeladen und muss nun nur noch von einem Moderator akzeptiert werden.";
-            $upload_filesize = $_FILES["img"]["size"];
+              $upload_filesize = $_FILES["img"]["size"];
             if ($upload_filesize >= $max_file_size || $_FILES["img"]["error"]) {
+                $error = true;
                 $error_msg .= "Dein Bild darf nicht grösser als $max_file_size sein. ";
                 $uploadOk = false;
             }
-
               if (!$uploadOk) {
                   $error_msg .= "Leider konnte deine Datei nicht hochgeladen werden.";
               }else{
@@ -65,7 +65,7 @@
                   $result = upload($title, $description, $lat, $lng, $file_name);
                   $success = true;
                   $success_msg .= "Dein Bild wurde erfolgreich hochgeladen und muss nun nur noch von einem Moderator akzeptiert werden.";
-              }
+        }
         }else{
           $error = true;
           $error_msg .= "Du hast leider noch kein Bild ausgewählt, welches du hochladen möchtest.</br>";
