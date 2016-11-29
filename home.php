@@ -41,7 +41,7 @@ function myMap() {
   marker.setMap(map);
   google.maps.event.addListener(marker,'click',function() {
     var infowindow = new google.maps.InfoWindow({
-      content:"hier kommt ein Bild irgendwann"
+      content:"Hier könnte Ihr Bild sein!"
     });
   infowindow.open(map,marker);
   });
