@@ -39,12 +39,12 @@
           // Dateigrösse kontrollieren
           $upload_filesize = $_FILES["img"]["size"];
           if ( $upload_filesize >= $max_file_size || $_FILES["img"]["error"]) {
-              $error_msg .= "Bild darf nicht grösser als $max_file_size sein. ";
+              $error_msg .= "Dein Bild darf nicht grösser als $max_file_size sein. ";
               $uploadOk = false;
           }
 
           if (!$uploadOk) {
-              $error_msg .= "Leider konnte die Datei nicht hochgeladen werden.";
+              $error_msg .= "Leider konnte deine Datei nicht hochgeladen werden.";
           } else {
               $file_name = time() . "." . $file_extension;
               move_uploaded_file($_FILES['img']['tmp_name'], $upload_path . $file_name );
@@ -59,7 +59,7 @@
     }
     else{
       $error = true;
-      $error_msg .= "Bitte füllen Sie alle Felder aus.</br>";
+      $error_msg .= "Du hast noch nicht alle Felder ausgefüllt.</br>";
     }
   }
 ?>
