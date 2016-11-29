@@ -67,17 +67,13 @@
 
         <h1>Alle Fotos</h1>
 
-          <?php
-
-          while ($picture = mysqli_fetch_assoc($picture_list)) {
-    ?>
+          <?php while ($picture = mysqli_fetch_assoc($picture_list)) { ?>
           <div class="col-lg-3 col-sm-4 col-xs-6 thumbnail-parent">
             <a title="<?php echo $picture['title']?>" href="#">
               <img class="thumbnail img-responsive" style="height:300px;width:auto;" src="img/<?php echo $picture['file_name']?>">
             </a>
             <div class="modal-title">
             <h3><?php echo $picture['title'] ?></h3>
-            <!--  <p><?php echo $upload_date ?></p> -->
             </div>
 
             <div class="thumbnail-modal">

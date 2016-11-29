@@ -1,25 +1,14 @@
-
 <?php
-
 session_start();
 if (!isset($_SESSION['user_id'])) {
     header('Location:login.php');
 } else {
     $user_id = $_SESSION['user_id'];
 }
-
 require_once("system/data.php");
 require_once("system/security.php");
 require_once("system/upload.php");
-
-
-
-
-
  ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,12 +16,9 @@ require_once("system/upload.php");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="author" content="Kim Schläpfer, Luca Toneatti, Fabio Follador">
-
     <title>Tourismusbilder</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css" type="text/css">
-
   </head>
   <body>
     <div class="page-header">
@@ -43,8 +29,6 @@ require_once("system/upload.php");
       <a href="create_poi.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-map-marker"></span></button></a>
       <a href="logout.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-eject"></span></button></a>
     </div>
-
-
     <!-- http://bootsnipp.com/snippets/kE9rg -->
     <div class="container">
        <div class="row">
@@ -83,39 +67,21 @@ require_once("system/upload.php");
         </div>
       </div>
     </div>
-
-
     <?php
       // Gibt es einen Erfolg zu vermelden?
-      if($success == true){
-    ?>
+      if ($success == true) {
+          ?>
         <div class="alert alert-success" role="alert"><?php echo $success_msg; ?></div>
     <?php
       }   // schliessen von if($success == true)
       // Gibt es einen Fehler?
-      if($error == true){
-    ?>
+      if ($error == true) {
+          ?>
         <div class="alert alert-danger" role="alert"><?php echo $error_msg; ?></div>
     <?php
       }   // schliessen von if($success == true)
     ?>
       </div><!-- /container -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="assets/js/main.js"></script>

@@ -4,14 +4,9 @@
       unset($_SESSION['id']);
   }
   session_destroy();
-
-  require_once('system/data.php');
-  require_once('system/security.php');
-
-  ?>
-
-
-
+  require_once 'system/data.php';
+  require_once 'system/security.php';
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,9 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="author" content="Kim Schläpfer, Luca Toneatti, Fabio Follador">
-
     <title>Tourismusbilder</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css" type="text/css">
   </head>
@@ -30,14 +23,7 @@
       <h1 class="logo">Tourismusbilder</h1>
       <a href="login.php"><button class="login-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-user"></span></button></a>
     </div>
-<div id="map"></div>
-
-
-
-
-
-
-
+    <div id="map"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -58,7 +44,6 @@ function myMap() {
   });
 }
 </script>
-
 <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
   </body>
 </html>

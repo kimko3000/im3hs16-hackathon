@@ -1,12 +1,9 @@
 <?php
-
-
   // für Spätere Verwendung initialisieren wir die Variablen $error, $error_msg, $success, $success_msg
   $error = false;
   $error_msg = "";
   $success = false;
   $success_msg = "";
-
   if(isset($_POST['upload-submit'])){
     if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['lat']) && !empty($_POST['lng'])){
       $title = filter_data($_POST['title']);
@@ -18,7 +15,6 @@
       $uploadOk = true;
       $upload_path = "img/";   // Zielverzeichnis für hochzuladene Datei
       $max_file_size = 500000;      // max. Dateigrösse in Byte
-
       // Filetype kontrollieren
       if ( ($_FILES['img']['name']  != "")){
           $filetype = $_FILES['img']['type'];
@@ -35,14 +31,12 @@
               default:
                 $uploadOk = false;
           }
-
           // Dateigrösse kontrollieren
           $upload_filesize = $_FILES["img"]["size"];
           if ( $upload_filesize >= $max_file_size || $_FILES["img"]["error"]) {
               $error_msg .= "Dein Bild darf nicht grösser als $max_file_size sein. ";
               $uploadOk = false;
           }
-
           if (!$uploadOk) {
               $error_msg .= "Leider konnte deine Datei nicht hochgeladen werden.";
           } else {

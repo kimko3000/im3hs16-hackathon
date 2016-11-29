@@ -1,31 +1,24 @@
 
 <?php
-
 session_start();
 if(isset($_SESSION['user_id']))
 unset($_SESSION['user_id']);
 session_destroy();
-
-
 require_once("system/data.php");
 require_once("system/security.php");
-
 $error = false;
 $error_msg = "";
 $success = false;
 $success_msg = "";
-// Kontrolle, ob die Seite direkt aufgerufen wurde oder vom Login-Formular
+// Kontrolle, ob Login-Formular gesendet wurde.
 if(isset($_POST['login-submit'])){
-  // Kontrolle mit isset, ob email und password ausgefüllt wurde
+  // Kontrolle ob username und password !empty (nicht leer)
   if(!empty($_POST['username']) && !empty($_POST['password'])){
-
-    // Werte aus POST-Array auf SQL-Injections prüfen und in Variablen schreiben
+    // Werte aus POST-Array filtern
     $username = filter_data($_POST['username']);
     $password = filter_data($_POST['password']);
-
     // Liefert alle Infos zu User mit diesen Logindaten
     $result = login($username, $password);
-
     // Anzahl der gefundenen Ergebnisse in $row_count
     $row_count = mysqli_num_rows($result);
     if( $row_count == 1){
@@ -34,7 +27,6 @@ if(isset($_POST['login-submit'])){
       $_SESSION['user_id'] = $user['user_id'];
       header("Location:home.php");
     }else{
-      // Fehlermeldungen werden erst später angezeigt
       $error = true;
       $error_msg .= "Leider konnte wir Ihre E-Mailadresse oder Ihr Passwort nicht finden.</br>";
     }
@@ -43,10 +35,9 @@ if(isset($_POST['login-submit'])){
     $error_msg .= "Bitte füllen Sie beide Felder aus.</br>";
   }
 }
-
-
+// Wurde das Register-Formular gesendet?
 if(isset($_POST['register-submit'])){
-  // Kontrolle mit isset, ob email und password ausgefüllt wurde
+  // Kontrolle ob email und password ausgefüllt wurde
   if(!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm-password'])){
     $username = filter_data($_POST['username']);
     $email = filter_data($_POST['email']);
@@ -61,8 +52,7 @@ if(isset($_POST['register-submit'])){
         $result = register($username, $email, $password);
         if($result){
           $success = true;
-          $success_msg = "Sie haben sich erfolgreich registriert.</br>
-          Bitte loggen Sie sich jetzt ein.</br>";
+          $success_msg = "Sie haben sich erfolgreich registriert.</br>Sie können sich jetzt einloggen.</br>";
         }else{
           $error = true;
           $error_msg .= "Es gibt ein Problem mit der Datenbankverbindung.</br>";
@@ -80,11 +70,7 @@ if(isset($_POST['register-submit'])){
     $error_msg .= "Bitte füllen Sie alle Felder aus.</br>";
   }
 }
-
-
  ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -93,15 +79,11 @@ if(isset($_POST['register-submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="author" content="Kim Schläpfer, Luca Toneatti, Fabio Follador">
-
     <title>Tourismusbilder</title>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css" type="text/css">
-
   </head>
   <body>
-
     <div class="page-header">
       <h1 class="logo">Tourismusbilder</h1>
       <a href="index.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-home"></span></button></a>
@@ -109,7 +91,7 @@ if(isset($_POST['register-submit'])){
       <a href="upload.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-camera"></span></button></a>
       <a href="create_poi.php"><button class="plus-btn btn btn-lg btn-circle btn-primary"><span class="glyphicon glyphicon-map-marker"></span></button></a>
     </div>
-
+    <!-- Login-Register-Formular -->
     <!-- http://bootsnipp.com/snippets/kE9rg -->
     <div class="container">
        <div class="row">
@@ -173,8 +155,6 @@ if(isset($_POST['register-submit'])){
         </div>
       </div>
     </div>
-
-
     <?php
       // Gibt es einen Erfolg zu vermelden?
       if($success == true){
@@ -190,22 +170,6 @@ if(isset($_POST['register-submit'])){
       }   // schliessen von if($success == true)
     ?>
       </div><!-- /container -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="assets/js/main.js"></script>
